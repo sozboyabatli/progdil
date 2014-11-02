@@ -29,7 +29,7 @@ function test { # olası durumlar için girdileri test ettir.
 }
 
 function replaceall {
-replaced=${unreplaced//_/ }
+replaced=${unreplaced//_/}
 }
 
 for arg in "$@" # komut satırından gelen seçeneği al.

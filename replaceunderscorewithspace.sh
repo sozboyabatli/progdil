@@ -25,6 +25,9 @@ echo -e "${BBlu}Çıktı:${RCol} '_salih ozdemir'"
 exit
 }
 
+function test { # olası durumlar için girdileri test ettir.
+}
+
 function replaceall {
 replaced=${unreplaced//_/ }
 }

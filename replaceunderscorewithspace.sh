@@ -44,6 +44,10 @@ if [ "$unreplaced" == "" ];then
 helpme
 fi
 
+if [ "$unreplaced" == "_" ];then
+replaced="_"
+fi
+
 if [ "$help" = "1" ]; then # yardım et. 
 helpme
 fi
@@ -51,5 +55,14 @@ fi
 if [ "$all" = "1" ]; then 
 replaceall
 fi
+
+for (( i = 1; i < ${#unreplaced}; ++i)); do #burada daha yapılacak şeyler var.
+j="${unreplaced:$i:1}"
+if [ "$j" = "_" ]; then
+j=" "
+fi
+replacedtmp+="$j"
+replaced="${unreplaced:0:1}$replacedtmp"
+done
 
 echo -e "$replaced" | sed -e 's/^[ \t]*//'

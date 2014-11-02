@@ -15,13 +15,18 @@ echo "Bir dizgideki kelime arası alt tire (underscore) karakterlerini boşlukla
 echo "değiştiren kabuk uygulamasıdır."
 echo -e "${BRed}KULLANIM:${RCol}"
 echo -e "${BBlu}Seçenekler:${RCol}"
-echo "-h or --help : yardımı gösterir."
+echo "-h ya da --help : yardımı gösterir."
+echo "-a ya da --all : tüm alt tireleri boşluğa çevirir."
 echo "Argüman olarak ortadaki alt tire(underscore)lerden arındırmak istenilen"
 echo "argümanı girin. Çıktı olarak alt tirelerin yerine boşluk konmuş hali"
 echo "dönecektir."
 echo -e "${BBlu}Örnek:${RCol} 'replaceunderscorewithspace  _salih_ozdemir'"
 echo -e "${BBlu}Çıktı:${RCol} '_salih ozdemir'"
 exit
+}
+
+function replaceall {
+replaced=${unreplaced//_/ }
 }
 
 for arg in "$@" # komut satırından gelen seçeneği al.
@@ -31,6 +36,7 @@ unreplaced="$arg"
 fi
 case "$arg" in
 -h | --help ) help=1 ;; # yardım isteniyor. 
+-a | --all ) all=1 ;; # hepsini değiştir.
 esac
 done
 
@@ -41,3 +47,9 @@ fi
 if [ "$help" = "1" ]; then # yardım et. 
 helpme
 fi
+
+if [ "$all" = "1" ]; then 
+replaceall
+fi
+
+echo -e "$replaced" | sed -e 's/^[ \t]*//'

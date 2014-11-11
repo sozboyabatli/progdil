@@ -65,44 +65,20 @@ fi
 #
 #
 
+replaced=""
 i=0
 if [ ${unreplaced:i:1} = "_" ]; then
-  echo -n "_"
+  replaced+="_"
 fi
 
 str=$unreplaced
-IFS=_
+IFS='_'
 words=($str)
 for key in "${!words[@]}"; do 
-  echo -n "${words[$key]}"; done
+  replaced+="${words[$key]}"; done
 
 if [ "${unreplaced: -1}" = "_" ]; then 
-  echo -n "_"
+  replaced+="_"
 fi
 
-
-
-
-
-
-
-
-
-
-
-#i=0
-#while [ $i -le ${#unreplaced} ]
-#  do
-#  onceki=${unreplaced:i-1:1}
-#  kendi=${unreplaced:i:1}
-#  sonraki=${unreplaced:i+1:1}
-#    if [ "$kendi"  = "_" ]; then
-#      if [ "$onceki"  != "_" ] ; then
-#        echo -n "$sonraki"
-#        fi
-#    elif
-#   fi
-#   ((i++))
-#  done
-#
-#echo -e "$replaced" | sed -e 's/^[ \t]*//'
+echo -e "$replaced" | sed -e 's/^[ \t]*//'

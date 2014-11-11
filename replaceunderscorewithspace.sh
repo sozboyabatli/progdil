@@ -25,8 +25,8 @@ echo -e "${BBlu}Çıktı:${RCol} '_salih ozdemir'"
 exit
 }
 
-function test { # olası durumlar için girdileri test ettir.
-}
+#function test { # olası durumlar için girdileri test ettir.
+#}
 
 function replaceall {
 replaced=${unreplaced//_/}
@@ -43,11 +43,11 @@ case "$arg" in
 esac
 done
 
-if [ "$unreplaced" == "" ];then
+if [ "$unreplaced" == "" ]; then
 helpme
 fi
 
-if [ "$unreplaced" == "_" ];then
+if [ "$unreplaced" == "_" ]; then
 replaced="_"
 fi
 
@@ -59,13 +59,45 @@ if [ "$all" = "1" ]; then
 replaceall
 fi
 
-for (( i = 1; i < ${#unreplaced}; ++i)); do #burada daha yapılacak şeyler var.
-j="${unreplaced:$i:1}"
-if [ "$j" = "_" ]; then
-j=" "
-fi
-replacedtmp+="$j"
-replaced="${unreplaced:0:1}$replacedtmp"
-done
 
-echo -e "$replaced" | sed -e 's/^[ \t]*//'
+#buraya yazılacak
+#
+#
+#
+
+if [ ${unreplaced:i:1} = "_" ]; then echo -n "_"; fi
+
+str=$unreplaced
+IFS=_
+words=($str)
+for key in "${!words[@]}"; do echo -n "${words[$key]} "; done
+
+
+if [ ${unreplaced:${#unreplaced}-1:1} = "_" ]; then echo -n "_"; fi
+
+
+
+
+
+
+
+
+
+
+
+#i=0
+#while [ $i -le ${#unreplaced} ]
+#  do
+#  onceki=${unreplaced:i-1:1}
+#  kendi=${unreplaced:i:1}
+#  sonraki=${unreplaced:i+1:1}
+#    if [ "$kendi"  = "_" ]; then
+#      if [ "$onceki"  != "_" ] ; then
+#        echo -n "$sonraki"
+#        fi
+#    elif
+#   fi
+#   ((i++))
+#  done
+#
+#echo -e "$replaced" | sed -e 's/^[ \t]*//'

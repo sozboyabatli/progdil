@@ -65,15 +65,20 @@ fi
 #
 #
 
-if [ ${unreplaced:i:1} = "_" ]; then echo -n "_"; fi
+i=0
+if [ ${unreplaced:i:1} = "_" ]; then
+  echo -n "_"
+fi
 
 str=$unreplaced
 IFS=_
 words=($str)
-for key in "${!words[@]}"; do echo -n "${words[$key]} "; done
+for key in "${!words[@]}"; do 
+  echo -n "${words[$key]}"; done
 
-
-if [ ${unreplaced:${#unreplaced}-1:1} = "_" ]; then echo -n "_"; fi
+if [ "${unreplaced: -1}" = "_" ]; then 
+  echo -n "_"
+fi
 
 
 

@@ -1,0 +1,8 @@
+#!bin/bash/
+
+DICTIONARY=(["$adjectives"]=(attractive average beautiful) ["$names"]=(anvil arrow axe))
+
+for x in ${!ARRAY[@]}
+      do
+      echo "$x - ${ARRAY["$x"]}"
+      done

@@ -50,3 +50,7 @@ replaced=`echo $unreplaced | sed -e 's,_, ,g'`
 # fi
 
 echo "$replaced"
+
+#TODO:
+#Başta-sondaki alt tireler ne olacak?
+#İndent düzeltme

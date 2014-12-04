@@ -973,3 +973,8 @@ function uretec() {
 }  
 
 uretec $1 $2
+
+#TODO:
+#Öyle bir dizin var mı?
+#Hata mesajları.
+#İndent düzeltme.

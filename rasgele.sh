@@ -1,4 +1,5 @@
 #!/bin/bash
+#rasgele.sh simge özboyabatlı 2014
 
 adlar=(
   "abla"
@@ -798,6 +799,7 @@ names=(
   "wing"
   "zipper"
   )
+
 adjectives=(
   "attractive"
   "broken"
@@ -930,14 +932,13 @@ function helpme {
   echo "    -en : İngilizce tamlamalar üretir."
   echo -e "Örnek: 
       'rasgele 2 -tr'"
-  echo -e "${BBlu}Çıktı:${RCol} 
+  echo -e "Çıktı: 
       'zarif efe
       gevrek zeytin'"
   exit
 }
 
 function uretec() {
-
   if [ "$1" == "-h" ]; then
   helpme
   fi

@@ -939,23 +939,30 @@ function helpme {
 }
 
 function uretec() {
+  adet="$1"
+  dil="$2"
+
+  if [ "$dil" == "" ]; then
+  dil="-tr"
+  fi
+
+  if [ "$adet" == "" ]; then
+  adet="1"
+  fi
+
   if [ "$1" == "-h" ]; then
   helpme
   fi
-
+  
   sayac=0
-  while [ "$sayac" -lt $1 ]
+  while [ "$sayac" -lt $adet ]
   do
-    case $2 in 
+    case $dil in 
       "-en")
-        indadj=$(( $RANDOM%${#adjectives[@]} ))
-        indname=$(( $RANDOM%${#names[@]} ))
-        echo ${adjectives[indadj]}" "${names[indname]}
+        echo ${adjectives[$(( $RANDOM%${#adjectives[@]} ))]}" "${names[$(( $RANDOM%${#names[@]} ))]}
       ;;
       "-tr")
-        indsifat=$(( $RANDOM%${#sifatlar[@]} ))
-        indad=$(( $RANDOM%${#adlar[@]} ))
-        echo ${sifatlar[indsifat]}" "${adlar[indad]}
+        echo ${sifatlar[$(( $RANDOM%${#sifatlar[@]} ))]}" "${adlar[$(( $RANDOM%${#adlar[@]} ))]}
       ;;    
     *)
       echo "Seçiminiz hatalı görünüyor. Yardım için -h parametresini kullanın."
@@ -963,11 +970,6 @@ function uretec() {
 
   sayac=$(( sayac+1 ))
   done
-
-  if [ "$?" = "0" ]; then
-    echo "Seçiminiz hatalı görünüyor. Yardım için -h parametresini kullanın." 1>&2
-  exit 1
-  fi
 }  
 
 uretec $1 $2

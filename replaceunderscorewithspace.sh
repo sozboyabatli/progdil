@@ -32,10 +32,6 @@ if [ "$unreplaced" == "_" ]; then
 replaced="_"
 fi
 
-if [ "$help" = "1" ]; then 
-helpme
-fi
-
 replaced=`echo $unreplaced | sed -e 's,_, ,g'`
 
 # i=0

@@ -146,6 +146,11 @@ function uretec() {
 
   sayac=$(( sayac+1 ))
   done
+
+  if [ "$?" = "0" ]; then
+    echo "Seçiminiz hatalı görünüyor. Yardım için -h parametresini kullanın." 1>&2
+  exit 1
+fi
 }  
 
 uretec $1 $2

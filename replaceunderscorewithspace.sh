@@ -36,20 +36,21 @@ if [ "$help" = "1" ]; then
 helpme
 fi
 
-replaced=""
-i=0
-if [ ${unreplaced:i:1} = "_" ]; then
-  replaced+="_"
-fi
+replaced=`echo $unreplaced | sed -e 's,_, ,g'`
 
-str=$unreplaced
-IFS='_'
-words=($str)
-for key in "${!words[@]}"; do 
-  replaced+="${words[$key]}"; done
+# i=0
+# if [ ${unreplaced:i:1} = "_" ]; then
+#   replaced+="_"
+# fi
 
-if [ "${unreplaced: -1}" = "_" ]; then 
-  replaced+="_"
-fi
+# str=$unreplaced
+# IFS='_'
+# words=($str)
+# for key in "${!words[@]}"; do 
+#   replaced+="${words[$key]}"; done
+
+# if [ "${unreplaced: -1}" = "_" ]; then 
+#   replaced+="_"
+# fi
 
 echo "$replaced"

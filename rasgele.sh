@@ -969,8 +969,6 @@ function uretec() {
       "-tr")
         echo ${sifatlar[$(( $RANDOM%${#sifatlar[@]} ))]}" "${adlar[$(( $RANDOM%${#adlar[@]} ))]}
       ;;    
-    *)
-        echo "Seçiminiz hatalı görünüyor. Yardım için -h parametresini kullanın."
     esac
     sayac=$(( sayac+1 ))
   done

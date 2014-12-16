@@ -71,5 +71,4 @@ function replace() {
 }
 replace $@
 
-#TODO:
 #Stil referansı: http://lug.fh-swf.de/vim/vim-bash/StyleGuideShell.en.pdf

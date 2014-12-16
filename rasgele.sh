@@ -995,5 +995,4 @@ function yazdir {
 }
 yazdir $@
 
-#TODO:
 #Stil referansı: http://lug.fh-swf.de/vim/vim-bash/StyleGuideShell.en.pdf

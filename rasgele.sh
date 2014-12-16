@@ -930,6 +930,8 @@ function helpme {
   echo "    adet(rakam) : Kaç adet tamlama üretilsin?"
   echo "    -tr : Türkçe tamlamalar üretir."
   echo "    -en : İngilizce tamlamalar üretir."
+  echo "    -d : Dizini kontrol et."
+
   echo -e "Örnek: 
       'rasgele 2 -tr'"
   echo -e "Çıktı: 
@@ -982,11 +984,9 @@ if [ "$1" == 1 ] && [ "$3" == "-d" ] ; then
     read cevap
      if [ "$cevap" == "e" ]; then
       mkdir "$cikti"
-    fi
+     fi
   fi
 fi
 
 #TODO:
-#Öyle bir dizin var mı?
-#Hata mesajları.
 #İndent düzeltme.

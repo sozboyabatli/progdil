@@ -972,7 +972,19 @@ function uretec() {
   done
 }  
 
-uretec $1 $2
+
+cikti=`uretec $1 $2`
+echo -e "$cikti\n"
+
+if [ "$1" == 1 ] && [ "$3" == "-d" ] ; then
+  if [ ! -d "$cikti" ]; then
+    echo "Böyle bir proje dizini yok, oluşturulsun mu? (e/H) "
+    read cevap
+     if [ "$cevap" == "e" ]; then
+      mkdir "$cikti"
+    fi
+  fi
+fi
 
 #TODO:
 #Öyle bir dizin var mı?

@@ -32,25 +32,38 @@ if [ "$unreplaced" == "_" ]; then
 replaced="_"
 fi
 
-replaced=`echo $unreplaced | sed -e 's,_, ,g'`
 
-# i=0
-# if [ ${unreplaced:i:1} = "_" ]; then
-#   replaced+="_"
-# fi
+len=${#unreplaced}
+i=0
 
-# str=$unreplaced
-# IFS='_'
-# words=($str)
-# for key in "${!words[@]}"; do 
-#   replaced+="${words[$key]}"; done
+while [ $i -lt $len ]; do
+ dizi[$i]=${unreplaced:$i:1}
+ i=$((i+1))
+done
 
-# if [ "${unreplaced: -1}" = "_" ]; then 
-#   replaced+="_"
-# fi
+for ((a=0; a<$len; a++)); do
+ if [ "${dizi[$a]}" != "_" ]; then
+ break
+fi
+done
 
-echo "$replaced"
+for (( b=$((len-1)); b>0; b-- )); do
+ if [ "${dizi[$b]}" != "_" ]; then
+  break
+ fi
+
+done
+
+for (( i=$a ; i<$b ; i++ )) do
+    if [ ${dizi[$i]} = '_' ] ; then
+      dizi[$i]=" "
+    fi
+  done
+
+cikti=$(IFS= ; echo "${dizi[*]}")
+echo "$cikti"
+
+
 
 #TODO:
-#Başta-sondaki alt tireler ne olacak?
 #İndent düzeltme

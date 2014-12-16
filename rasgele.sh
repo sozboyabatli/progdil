@@ -979,15 +979,15 @@ function yazdir {
   echo -e "$cikti\n"
 
   if [ "$1" == 1 ] && [ "$3" == "-d" ]
-    then
+  then
     if [ ! -d "$cikti" ]
-      then
+    then
       echo "Böyle bir proje dizini yok, oluşturulsun mu? (e/H) "
       read cevap
-       if [ "$cevap" == "e" ]
-       then
+      if [ "$cevap" == "e" ]
+      then
         mkdir "$cikti"
-       fi
+      fi
     fi
   fi
 }

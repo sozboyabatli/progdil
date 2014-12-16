@@ -944,16 +944,19 @@ function uretec() {
   adet="$1"
   dil="$2"
 
-  if [ "$dil" == "" ]; then
-  dil="-tr"
+  if [ "$dil" == "" ]
+  then
+    dil="-tr"
   fi
 
-  if [ "$adet" == "" ]; then
-  adet="1"
+  if [ "$adet" == "" ]
+  then
+    adet="1"
   fi
 
-  if [ "$1" == "-h" ]; then
-  helpme
+  if [ "$1" == "-h" ]
+  then
+    helpme
   fi
   
   sayac=0
@@ -967,26 +970,30 @@ function uretec() {
         echo ${sifatlar[$(( $RANDOM%${#sifatlar[@]} ))]}" "${adlar[$(( $RANDOM%${#adlar[@]} ))]}
       ;;    
     *)
-      echo "Seçiminiz hatalı görünüyor. Yardım için -h parametresini kullanın."
+        echo "Seçiminiz hatalı görünüyor. Yardım için -h parametresini kullanın."
     esac
-
-  sayac=$(( sayac+1 ))
+    sayac=$(( sayac+1 ))
   done
-}  
+}
 
+function yazdir {
+  cikti=`uretec $1 $2`
+  echo -e "$cikti\n"
 
-cikti=`uretec $1 $2`
-echo -e "$cikti\n"
-
-if [ "$1" == 1 ] && [ "$3" == "-d" ] ; then
-  if [ ! -d "$cikti" ]; then
-    echo "Böyle bir proje dizini yok, oluşturulsun mu? (e/H) "
-    read cevap
-     if [ "$cevap" == "e" ]; then
-      mkdir "$cikti"
-     fi
+  if [ "$1" == 1 ] && [ "$3" == "-d" ]
+    then
+    if [ ! -d "$cikti" ]
+      then
+      echo "Böyle bir proje dizini yok, oluşturulsun mu? (e/H) "
+      read cevap
+       if [ "$cevap" == "e" ]
+       then
+        mkdir "$cikti"
+       fi
+    fi
   fi
-fi
+}
+yazdir $@
 
 #TODO:
-#İndent düzeltme.
+#Stil referansı: http://lug.fh-swf.de/vim/vim-bash/StyleGuideShell.en.pdf
